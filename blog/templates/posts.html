@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Posts</title> 
+{% endblock %}
+
+{% block body %}
+<h1>All Posts</h1>
+
+
+    {% for post in posts %}
+        <h2>{{ post.title }}</h2>
+
+            <h3>By: <a href="{{ url_for('index', id=post.author.id  ) }}">{{ post.author }}</a></h3>
+        
+        <p>{{ post.content }}</p>
+        <hr>
+    {% else %}
+        No posts yet
+    {% endfor%}
+
+{% endblock %}
